@@ -1,0 +1,49 @@
+{
+  "FileRecords": [
+    {
+      "Path": "C:",
+      "IsDirectory": true,
+      "Content": "",
+      "Timestamp": "2026-05-31T16:37:39.7271261-04:00"
+    },
+    {
+      "Path": "C:\\GSTDOS",
+      "IsDirectory": true,
+      "Content": "",
+      "Timestamp": "2026-05-31T16:37:39.7317617-04:00"
+    },
+    {
+      "Path": "C:\\GSTDOS\\GSTDOS.SYS",
+      "IsDirectory": false,
+      "Content": "GST-DOS SYSTEM CORE REGION",
+      "Timestamp": "2026-05-31T16:37:39.731795-04:00"
+    },
+    {
+      "Path": "C:\\GSTDOS\\GSTBIOS.SYS",
+      "IsDirectory": false,
+      "Content": "GST-BIOS SYSTEM HARDWARE BRIDGE",
+      "Timestamp": "2026-05-31T16:37:39.7318141-04:00"
+    },
+    {
+      "Path": "C:\\GSTDOS\\COMMAND.COM",
+      "IsDirectory": false,
+      "Content": "GST-DOS COMMAND LINE INTERPRETER",
+      "Timestamp": "2026-05-31T16:37:39.7318148-04:00"
+    },
+    {
+      "Path": "C:\\CONFIG.SYS",
+      "IsDirectory": false,
+      "Content": "DOS=HIGH\nBUFFERS=20\nFILES=30",
+      "Timestamp": "2026-05-31T16:37:39.7318151-04:00"
+    },
+    {
+      "Path": "C:\\AUTOEXEC.BAT",
+      "IsDirectory": false,
+      "Content": "@ECHO OFF\nPATH C:\\GSTDOS\nECHO Welcome, SPIDEYBASH4116",
+      "Timestamp": "2026-05-31T16:37:39.7318156-04:00"
+    }
+  ],
+  "RegisteredOwner": "SPIDEYBASH4116",
+  "SetupCompleted": true,
+  "EnableHma": true
+}
