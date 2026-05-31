@@ -1,6 +1,6 @@
 # Gemstone Disk Operating System (GST-DOS)
 
-GST-DOS is a lightweight, DOS-like operating system designed to provide a nostalgic yet functional command-line environment. Developed as an experimental project, GST-DOS handles basic file management, directory navigation, and kernel configuration.
+GST-DOS is a lightweight, DOS-like operating system designed to provide a nostalgic yet functional command-line environment. Developed as an experimental project, GST-DOS handles basic file management, directory navigation, and kernel configuration. Also, I recently found out that I named the project "GST-DOS 0.11" and not "GST-DOS". I don't know how to change this, so this is unfortunate.
 
 ## Features
 - **Core Kernel:** Manages memory and basic system operations.
