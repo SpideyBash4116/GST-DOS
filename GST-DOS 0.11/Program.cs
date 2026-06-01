@@ -1,4 +1,4 @@
-﻿#nullable disable
+#nullable disable
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -283,6 +283,8 @@ namespace GemstoneDOS
         private void RunCommandShell()
         {
             Console.Clear();
+            Console.Beep();
+            Thread.Sleep(1000);
             Console.WriteLine("Gemstone Disk Operating System [Version 0.10]");
             Console.WriteLine($"(C) Copyright 1981-2026 Gemstone Corp. Registered to: {_ownerName}");
             Console.WriteLine();
@@ -366,6 +368,9 @@ namespace GemstoneDOS
                     break;
                 case "MEM":
                     ShowMemory();
+                    break;
+                case "UNINS0000":
+                    Uninstall();
                     break;
                 case "SETUP":
                     RunSetupWizard();
@@ -645,6 +650,50 @@ namespace GemstoneDOS
             Console.WriteLine($"  HMA Segment Allocated:        {hmaSize} KB");
             Console.WriteLine($"  Used (GST-DOS Resident):      {baseUsed} KB");
             Console.WriteLine($"  Available Conventional:      {baseTotal - baseUsed} KB\n");
+        }
+
+        // New uninstall implementation
+        private void Uninstall()
+        {
+            Console.WriteLine("\nUNINSTALL GST-DOS");
+            Console.Write("This will remove the GST-DOS disk state file and unregister your installation. Continue? (Y/N): ");
+            var response = Console.ReadLine()?.Trim().ToUpper();
+            if (response == "Y" || response == "YES")
+            {
+                try
+                {
+                    if (File.Exists(DiskFileName))
+                    {
+                        File.Delete(DiskFileName);
+                        Console.WriteLine("GST-DOS installation removed (disk state deleted).");
+                    }
+                    else
+                    {
+                        Console.WriteLine("No installation found to remove.");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error while uninstalling: {ex.Message}");
+                }
+
+                // Reset in-memory state so session reflects uninstall
+                _rootDir = new VNode("C:", true);
+                _currentDir = _rootDir;
+                _pathStack = new List<string> { "C:" };
+                _ownerName = "SYSTEM";
+                _hmaEnabled = false;
+
+                Console.WriteLine("Press [ENTER] to exit.");
+                Console.ReadLine();
+
+                // Exit shell so user returns to host environment
+                _running = false;
+            }
+            else
+            {
+                Console.WriteLine("Uninstall cancelled.");
+            }
         }
     }
 }
